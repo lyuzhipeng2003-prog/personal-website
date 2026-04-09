@@ -542,7 +542,7 @@
         </div>
     </section>
 
-    <!-- 5) Resume / CV 部分 (下载按钮指向真实简历文件) -->
+    <!-- 5) Resume / CV 部分（已删除额外提示文字） -->
     <section id="resume">
         <div class="container">
             <h2 class="section-title">📄 简历与资质</h2>
@@ -562,13 +562,8 @@
                     </div>
                 </div>
                 <div style="text-align: center; margin-top: 1rem;">
-                    <!-- 修改点：下载链接直接指向简历文件 (需将文件放在同目录) -->
+                    <!-- 下载按钮直接指向简历文件 -->
                     <a href="./Lyu_Zhipeng_Resume.pdf" class="download-btn" download><i class="fas fa-download"></i> 下载完整简历 (PDF)</a>
-                    <p style="font-size: 0.7rem; margin-top: 8px;">✅ 已将简历文件命名为 <strong>Lyu_Zhipeng_Resume.pdf</strong> 并放在网站根目录，点击即可下载。</p>
-                </div>
-                <!-- 备用 Google Drive 链接（可选，用户可替换为自己的分享链接） -->
-                <div style="margin-top: 10px; text-align: center;">
-                    <a href="#" style="color:#2E8A99;" target="_blank" id="googleDriveLink">📎 备用预览链接 (Google Drive) — 请替换为实际简历公开链接</a>
                 </div>
             </div>
         </div>
@@ -598,15 +593,7 @@
 </footer>
 
 <script>
-    // 为备用Google Drive链接添加提示 (占位符)
-    const driveLink = document.getElementById('googleDriveLink');
-    if(driveLink && driveLink.getAttribute('href') === '#') {
-        driveLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert("请将您的简历上传至 Google Drive 并获取分享链接，替换此处的 # 号。或者直接使用上方的下载按钮。");
-        });
-    }
-    // 其他占位链接友好提示 (项目中的占位按钮)
+    // 仅为项目中的占位链接添加提示（不影响简历下载）
     const demoLinks = document.querySelectorAll('.btn-outline');
     demoLinks.forEach(link => {
         if(link.getAttribute('href') === '#') {
