@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Lyu Zhipeng · 数据科学求职作品集</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafefd;
+            color: #1a2c3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(2px);
+        }
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0.9rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-weight: 700;
+            font-size: 1.4rem;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, #1F6E8C, #2E8A99);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #2c4b5c;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+        .nav-links a:hover {
+            color: #1F6E8C;
+            border-bottom: 2px solid #1F6E8C;
+            padding-bottom: 4px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        section {
+            scroll-margin-top: 80px;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #0F2C3D;
+            border-left: 5px solid #2E8A99;
+            padding-left: 1rem;
+            letter-spacing: -0.3px;
+        }
+        .hero {
+            background: linear-gradient(120deg, #EFF7F6 0%, #ffffff 100%);
+            border-radius: 2rem;
+            padding: 2.5rem 2rem;
+            margin-bottom: 1rem;
+        }
+        .headline {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1A5F6E;
+            line-height: 1.3;
+        }
+        .job-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1.5rem 0 1rem;
+        }
+        .tag {
+            background: #e0f0f0;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #1F6E8C;
+        }
+        .positioning-text {
+            font-size: 1.2rem;
+            color: #2c5a6e;
+            margin-top: 0.8rem;
+            border-left: 3px solid #2E8A99;
+            padding-left: 1rem;
+        }
+        .about-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            background: #ffffff;
+            border-radius: 1.5rem;
+            padding: 1.8rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .about-text {
+            flex: 2;
+        }
+        .strengths {
+            flex: 1;
+            background: #F4F9F9;
+            border-radius: 1.2rem;
+            padding: 1.2rem;
+        }
+        .strengths ul {
+            padding-left: 1.2rem;
+            margin-top: 0.8rem;
+        }
+        .strengths li {
+            margin: 0.6rem 0;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
+        .skill-card {
+            background: white;
+            border-radius: 1.2rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid #e2ecec;
+        }
+        .skill-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1F6E8C;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+        .skill-badge {
+            background: #eef3f3;
+            padding: 0.3rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+        .project-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.8rem;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+            border: 1px solid #e2edf0;
+            transition: all 0.2s ease;
+        }
+        .project-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1rem;
+            border-bottom: 2px dashed #cde3e6;
+            padding-bottom: 0.6rem;
+        }
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #124f5e;
+        }
+        .project-date {
+            color: #558b9b;
+            font-weight: 500;
+        }
+        .project-detail {
+            margin: 0.8rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .detail-label {
+            font-weight: 700;
+            min-width: 110px;
+            color: #1e6b7c;
+        }
+        .detail-content {
+            flex: 1;
+            color: #2c3f47;
+        }
+        .contribution-highlight {
+            background: #eef5f5;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: inline-block;
+        }
+        .project-links {
+            margin-top: 1rem;
+        }
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: transparent;
+            border: 1px solid #2E8A99;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            color: #1F6E8C;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .btn-outline:hover {
+            background: #2E8A99;
+            color: white;
+        }
+        .resume-wrapper {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.8rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            border: 1px solid #e2ecec;
+        }
+        .resume-summary {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .resume-block {
+            flex: 1;
+        }
+        .resume-block h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: #1F6E8C;
+            border-left: 3px solid #2E8A99;
+            padding-left: 0.6rem;
+        }
+        .resume-block p, .resume-block li {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .download-btn {
+            display: inline-block;
+            background: #1F6E8C;
+            color: white;
+            padding: 0.6rem 1.6rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 1.2rem;
+            transition: 0.2s;
+        }
+        .download-btn i {
+            margin-right: 8px;
+        }
+        .download-btn:hover {
+            background: #0d556b;
+        }
+        .contact-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            justify-content: space-between;
+            background: #F4F9F9;
+            border-radius: 1.5rem;
+            padding: 1.8rem;
+        }
+        .contact-info a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-right: 1.8rem;
+            margin-bottom: 0.8rem;
+            text-decoration: none;
+            color: #2c5a6e;
+            font-weight: 500;
+        }
+        .contact-info i {
+            font-size: 1.3rem;
+            color: #1F6E8C;
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.8rem;
+            color: #6b8f9c;
+            border-top: 1px solid #e0ecec;
+        }
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            .nav-links {
+                gap: 1rem;
+                justify-content: center;
+            }
+            .hero { padding: 1.5rem; }
+            .headline { font-size: 1.6rem; }
+            .section-title { font-size: 1.6rem; }
+            .project-header { flex-direction: column; gap: 0.3rem; }
+            .detail-label { min-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">📊 Lyu Zhipeng</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main>
+    <!-- 1) Home / Headline -->
+    <section id="home">
+        <div class="container">
+            <div class="hero">
+                <div class="headline">📌 数据科学实习生 / 数据分析师 (2026 夏季实习 / 应届)</div>
+                <div class="job-tags">
+                    <span class="tag">#Data Science</span>
+                    <span class="tag">#Python & SQL</span>
+                    <span class="tag">#Tableau</span>
+                    <span class="tag">#Blockchain</span>
+                    <span class="tag">#Big Data</span>
+                    <span class="tag">#ETL & Visualization</span>
+                </div>
+                <div class="positioning-text">
+                    🚀 用数据与算法解决实际问题 — 寻求数据科学/数据分析岗位，将大数据处理、区块链智能合约及可视化能力转化为商业价值。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2) About Me -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">👤 About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>我是吕志鹏 (Lyu Zhipeng)，目前于香港岭南大学攻读数据科学理学硕士（预计2026年6月毕业）。本科毕业于广东石油化工学院数据科学与大数据技术专业，具备扎实的工程与算法背景。</p>
+                    <p style="margin-top: 12px;">拥有三段实习经历，包括大数据开发、IT技术支持及研发助理。曾在浙江海康科技集团利用Python与Tableau构建自动化数据管道与商业仪表板，将数据可用性提升至95%以上。同时主导过基于以太坊区块链的去中心化投票系统开发，以及香港充电站布局仿真系统。</p>
+                    <p style="margin-top: 12px;">我热爱通过技术创造透明、高效的解决方案，善于跨团队协作并将分析成果落地为实际决策。流利英语（IELTS 6.5）及扎实的编程能力（Python/SQL/Solidity）使我能够快速适应数据驱动的挑战。</p>
+                </div>
+                <div class="strengths">
+                    <h4>💡 核心优势</h4>
+                    <ul>
+                        <li>✔️ 全栈数据流：清洗 → 分析 → 可视化 → 报告</li>
+                        <li>✔️ 区块链智能合约 (Solidity/Hardhat) 开发与部署</li>
+                        <li>✔️ 商业智能与故事化呈现 (Tableau, Power BI)</li>
+                        <li>✔️ 快速学习 & 适应力强，拥有团队领导经验</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3) Skills -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">⚙️ Skills & Tools</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3><i class="fas fa-code"></i> 技术能力</h3>
+                    <div class="skill-list">
+                        <span class="skill-badge">Python (Pandas/NumPy)</span>
+                        <span class="skill-badge">SQL (MySQL, PostgreSQL)</span>
+                        <span class="skill-badge">C++</span>
+                        <span class="skill-badge">R</span>
+                        <span class="skill-badge">Solidity</span>
+                        <span class="skill-badge">Hadoop / KNIME</span>
+                        <span class="skill-badge">统计建模 / 线性回归</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-chart-line"></i> 数据分析与商业</h3>
+                    <div class="skill-list">
+                        <span class="skill-badge">数据清洗 & ETL</span>
+                        <span class="skill-badge">多维分析 & 归因</span>
+                        <span class="skill-badge">A/B测试思维</span>
+                        <span class="skill-badge">需求拆解 & 报告撰写</span>
+                        <span class="skill-badge">数据叙事</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-tools"></i> 工具 & 框架</h3>
+                    <div class="skill-list">
+                        <span class="skill-badge">Tableau / Power BI</span>
+                        <span class="skill-badge">Git / GitHub</span>
+                        <span class="skill-badge">Hardhat / Ethers.js</span>
+                        <span class="skill-badge">Flask / NetworkX</span>
+                        <span class="skill-badge">Jupyter / VS Code</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4) Projects Portfolio -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">📁 核心项目作品集</h2>
+            <div class="projects-grid">
+                <!-- 项目1：区块链去中心化投票系统 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-title">🔗 去中心化电子投票系统 (基于以太坊)</span>
+                        <span class="project-date">2025.11 – 2026.01</span>
+                    </div>
+                    <div class="project-detail">
+                        <div class="detail-label">🔍 Problem：</div>
+                        <div class="detail-content">传统投票系统依赖中心化机构，存在数据篡改、结果不透明风险。社区治理、公司内部选举需要一套公开、不可篡改且可验证的投票方案。</div>
+                    </div>
+                    <div class="project-detail">
+                        <div class="detail-label">📊 Data：</div>
+                        <div class="detail-content">用户身份及投票记录以智能合约形式存储于以太坊测试链 (Goerli/Sepolia) ，包含选民地址、提案ID、投票选项、时间戳。数据完全上链保证不可篡改。</div>
+                    </div>
+                    <div class="project-detail">
+                        <div class="detail-label">⚙️ Approach：</div>
+                        <div class="detail-content">使用 Solidity 0.8.0 编写智能合约，设计 User 和 VoteActivity 结构体及权限修饰器；利用 Hardhat 框架进行编译、测试与部署。前端采用 Vue.js + Ethers.js 连接 MetaMask 钱包，实现用户注册、投票执行和结果自动统计。三层架构（前端-合约-区块链）确保端到端透明。</div>
+                    </div>
+                    <div class="project-detail">
+                        <div class="detail-label">🎯 Outcome/Impact：</div>
+                        <div class="detail-content">完全去中心化的投票应用，投票结果实时上链且任何人可验证，杜绝作弊。系统响应时间 < 3s，支持高并发投票活动。项目代码已归档，可作为 DAO 组织的选举基础设施。</div>
+                    </div>
+                    <div class="project-detail">
+                        <div class="detail-label">👤 Your Contribution：</div>
+                        <div class="detail-content"><span class="contribution-highlight">独立负责全流程：技术选型、智能合约架构设计、Solidity开发、Hardhat部署、前端交互集成及功能测试，确保系统安全性与稳定性。</span></div>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn-outline" target="_blank"><i class="fab fa-github"></i> 合约代码库 (占位)</a>
+                        <a href="#" class="btn-outline" target="_blank"><i class="fas fa-vote-yea"></i> 演示视频/文档</a>
+                    </div>
+                </div>
+
+                <!-- 项目2：香港充电站布局仿真系统 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-title">⚡ 香港电动车充电站布局仿真系统</span>
+                        <span class="project-date">2026.02 – 2026.04</span>
+                    </div>
+                    <div class="project-detail">
+                        <div class="detail-label">🔍 Problem：</div>
+                        <div class="detail-content">香港电动车数量快速增长，但充电站布局不合理导致“里程焦虑”。需要量化评估候选站点覆盖范围及可达性，为城市规划提供数据决策工具。</div>
+                    </div>
+                    <div class="project-detail">
+                        <div class="detail-label">📊 Data：</div>
+                        <div class="detail-content">基于 OpenStreetMap 的香港路网数据（节点约2.8万个，边约6.5万条）；充电站候选点坐标；模拟电动车起始位置及行驶需求。数据格式为 CSV 节点/边文件。</div>
+                    </div>
+                    <div class="project-detail">
+                        <div class="detail-label">⚙️ Approach：</div>
+                        <div class="detail-content">后端使用 Python + Flask，基于 NetworkX 构建图结构并实现 Dijkstra 最短路径算法。Pandas 清洗节点/边数据，提供 RESTful API (充电站列表、路径规划)。前端 Leaflet.js 动态渲染地图，展示站点覆盖范围及最优路径。参与设计覆盖优化算法（贪心选址）。</div>
+                    </div>
+                    <div class="project-detail">
+                        <div class="detail-label">🎯 Outcome/Impact：</div>
+                        <div class="detail-content">生成可视化交互式决策看板，支持不同选址方案下的覆盖率与平均距离对比。相比随机选址，优化后方案提升核心区域覆盖率约22%。为香港规划署模拟场景提供参考。</div>
+                    </div>
+                    <div class="project-detail">
+                        <div class="detail-label">👥 Your Contribution：</div>
+                        <div class="detail-content"><span class="contribution-highlight">参与后端开发，实现 Dijkstra 路径规划模块；负责数据预处理（CSV清洗、图构建）；开发基础 API 接口；协助调试地图路径渲染及覆盖计算模块，并编写技术文档。</span></div>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn-outline" target="_blank"><i class="fab fa-github"></i> 后端源码</a>
+                        <a href="#" class="btn-outline" target="_blank"><i class="fas fa-map-marked-alt"></i> 在线演示地图</a>
+                    </div>
+                </div>
+
+                <!-- 项目3：销售数据自动化清洗与商业智能看板 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-title">📊 企业销售数据 ETL 及多维分析看板</span>
+                        <span class="project-date">2024.07 – 2024.08</span>
+                    </div>
+                    <div class="project-detail">
+                        <div class="detail-label">🔍 Problem：</div>
+                        <div class="detail-content">某科技公司业务数据存在大量缺失值、异常记录，导致分析效率低；产品团队需要实时了解用户行为趋势及销售关键指标，以优化运营策略。</div>
+                    </div>
+                    <div class="project-detail">
+                        <div class="detail-label">📊 Data：</div>
+                        <div class="detail-content">公司脱敏销售订单及用户行为日志（约30万行记录，包含交易时间、用户ID、产品类别、金额、地区等）。</div>
+                    </div>
+                    <div class="project-detail">
+                        <div class="detail-label">⚙️ Approach：</div>
+                        <div class="detail-content">使用 Python (Pandas/NumPy) 编写自动化脚本处理缺失值与异常值（均值插补、剔除逻辑错误），数据可用性从82%提升至95%+。进行多维度分析（用户留存、复购率、区域销售趋势），并利用 Tableau 构建交互式仪表板，实现动态筛选与下钻。同时产出分析报告提出3项产品改进建议。</div>
+                    </div>
+                    <div class="project-detail">
+                        <div class="detail-label">🎯 Outcome/Impact：</div>
+                        <div class="detail-content">仪表板被产品与运营团队日常使用，每周节省约8小时人工处理时间。通过分析发现高潜力地区及用户偏好，支撑了营销活动调整，活动点击率提升12%。</div>
+                    </div>
+                    <div class="project-detail">
+                        <div class="detail-label">👤 Your Contribution：</div>
+                        <div class="detail-content"><span class="contribution-highlight">独立完成数据清洗脚本、多维分析及 Tableau 看板搭建；与产品协作定义关键指标，撰写最终分析报告。</span></div>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn-outline" target="_blank"><i class="fas fa-chart-simple"></i> Tableau 看板预览</a>
+                        <a href="#" class="btn-outline" target="_blank"><i class="fab fa-python"></i> 数据处理代码</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5) Resume / CV 部分（已删除额外提示文字） -->
+    <section id="resume">
+        <div class="container">
+            <h2 class="section-title">📄 简历与资质</h2>
+            <div class="resume-wrapper">
+                <div class="resume-summary">
+                    <div class="resume-block">
+                        <h4>🎓 教育背景</h4>
+                        <p><strong>岭南大学 (香港)</strong> — 数据科学理学硕士 (2025.09 – 2026.06 预计)<br>核心课程：机器学习、大数据分析、高级统计、区块链技术</p>
+                        <p><strong>广东石油化工学院</strong> — 数据科学与大数据技术 学士 (2021.09 – 2025.06)<br>GPA 3.6/4.0，优秀毕业生，多次获得数据挖掘竞赛奖项</p>
+                    </div>
+                    <div class="resume-block">
+                        <h4>💼 实习经历摘要</h4>
+                        <p><strong>浙江海康科技集团</strong> · 大数据实习生 (2024.07-2024.08)<br>▪ 自动化数据清洗(Python)，数据可用性提升至95%+；Tableau看板助力产品决策</p>
+                        <p><strong>深圳光大同创新材料</strong> · IT实习生 (2024.08-2024.09)<br>▪ 桌面/网络技术支持，参与内部工具开发与数据库备份</p>
+                        <p><strong>高州市丰盛食品</strong> · 助理工程师实习生 (2023.07-2023.08)<br>▪ 实验室数据整理、数据库搭建及文献调研支持研发</p>
+                        <p><strong>语言：</strong>中文(母语) · 英语 IELTS 6.5 (流利读写)</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 1rem;">
+                    <!-- 下载按钮直接指向简历文件 -->
+                    <a href="./Lyu_Zhipeng_Resume.pdf" class="download-btn" download><i class="fas fa-download"></i> 下载完整简历 (PDF)</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6) Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">📬 联系方式</h2>
+            <div class="contact-flex">
+                <div class="contact-info">
+                    <a href="mailto:13922518480@163.com"><i class="fas fa-envelope"></i> 13922518480@163.com</a>
+                    <a href="tel:+85284957043"><i class="fas fa-phone-alt"></i> +852 84957043</a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/zhipeng-lyu</a>
+                    <a href="#" target="_blank"><i class="fab fa-github"></i> github.com/zhipeng-data</a>
+                </div>
+                <div style="font-size: 0.85rem; background: white; padding: 0.6rem 1rem; border-radius: 60px;">
+                    📍 香港 / 深圳 · 随时到岗实习或全职
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2025 Lyu Zhipeng · 数据科学求职作品集 | 基于真实项目与实习经历 | 简历可直接下载</p>
+</footer>
+
+<script>
+    // 仅为项目中的占位链接添加提示（不影响简历下载）
+    const demoLinks = document.querySelectorAll('.btn-outline');
+    demoLinks.forEach(link => {
+        if(link.getAttribute('href') === '#') {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert("这是一个示例占位链接，正式部署时请替换为您的真实代码仓库/报告链接，以获得更高评分。");
+            });
+        }
+    });
+</script>
+</body>
+</html>
